@@ -207,6 +207,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = AppleTechOnline;
 				TargetAttributes = {
+					C314B8C8196A150E007A9957 = {
+						DevelopmentTeam = 4PL779T855;
+					};
 					C314B8EF196A150E007A9957 = {
 						TestTargetID = C314B8C8196A150E007A9957;
 					};
@@ -396,10 +399,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Socialguy/Socialguy-Prefix.pch";
 				INFOPLIST_FILE = "Socialguy/Socialguy-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -409,10 +415,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Socialguy/Socialguy-Prefix.pch";
 				INFOPLIST_FILE = "Socialguy/Socialguy-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -476,6 +485,7 @@
 				C314B903196A150E007A9957 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C314B904196A150E007A9957 /* Build configuration list for PBXNativeTarget "SocialguyTests" */ = {
 			isa = XCConfigurationList;
@@ -484,6 +494,7 @@
 				C314B906196A150E007A9957 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

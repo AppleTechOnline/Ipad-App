@@ -12,6 +12,9 @@
 
 @interface MasterViewController : UITableViewController
 
+@property (nonatomic, retain) NSArray *socialNames;
+@property (nonatomic, retain) NSArray *socialAdress;
+
 @property (strong, nonatomic) DetailViewController *detailViewController;
 
 @end

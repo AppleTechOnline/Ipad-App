@@ -30,10 +30,15 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
+    
+    
+    _socialNames = [[NSArray alloc] initWithObjects:@"Twitter", @"FaceBook", @"Youtube", @"Apple's Website!", @"Reddit!",  @"Imgur", nil];
+    _socialAdress = [[NSArray alloc] initWithObjects:@"http://mobile.twitter.com", @"http://m.facebook.com", @"http://m.youtube.com", @"http://www.AppleTechOnline.tk", @"http://www.reddit.com", @"http://www.imgur.com", nil];
+    
+    
+    
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-    self.navigationItem.rightBarButtonItem = addButton;
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
 }
 
@@ -62,7 +67,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _objects.count;
+    return _socialNames.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -71,6 +76,7 @@
 
     NSDate *object = _objects[indexPath.row];
     cell.textLabel.text = [object description];
+    cell.textLabel.text = _socialNames[indexPath.row];
     return cell;
 }
 
@@ -108,11 +114,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        NSDate *object = _objects[indexPath.row];
-        self.detailViewController.detailItem = object;
+    NSString *urlString = [_socialAdress objectAtIndex:indexPath.row];
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    self.detailViewController.webView.scalesPageToFit = YES;
+    
+    [self.detailViewController.webView loadRequest:request];
     }
-}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
