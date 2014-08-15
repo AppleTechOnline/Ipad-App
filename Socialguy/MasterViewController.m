@@ -37,6 +37,10 @@
     _socialAdress = [[NSArray alloc] initWithObjects:@"http://mobile.twitter.com", @"http://m.facebook.com", @"http://m.youtube.com", @"http://www.AppleTechOnline.tk", @"http://www.reddit.com", @"http://www.imgur.com", nil];
     
     
+    // Setting the background color of the UITableView for example a mint green
+    UIColor *backgroundColor = [UIColor colorWithRed:0.7 green:1.0 blue:0.85 alpha:1.0];
+    self.tableView.backgroundView = [[UIView alloc]initWithFrame:self.tableView.bounds];
+    self.tableView.backgroundView.backgroundColor = backgroundColor;
     
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
@@ -129,6 +133,13 @@
         NSDate *object = _objects[indexPath.row];
         [[segue destinationViewController] setDetailItem:object];
     }
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    // Set the background color on each cell, here it's a beautiful purple
+    UIColor *altCellColor = [UIColor colorWithRed:0.5 green:0.0 blue:0.5 alpha:1.0];
+    cell.backgroundColor = altCellColor;
 }
 
 @end
